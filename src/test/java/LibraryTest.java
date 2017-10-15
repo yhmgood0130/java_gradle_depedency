@@ -5,6 +5,53 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class LibraryTest {
+    @Test public void isNegativeShouldReturnTrueWhenNegative(){
+        boolean expect = true;
+        int input = -1;
+
+        Library classUnderTest = new Library();
+
+        boolean actual = classUnderTest.isNegative(input);
+        assertEquals("isNegative should be return -1", expect, actual);
+    }
+//    @Test public void isNegativeShouldReturnFalseWhenPositive(){
+//        boolean expect = false;
+//        int input = 1;
+//        Library classUnderTest = new Library();
+//
+//        boolean actual = classUnderTest.isNegative(input);
+//        assertEquals("isNegative should be false for 1",expect,actual);
+//    }
+//    @Test void loginShouldSucceedWithValidPassword(){
+//        boolean expected = true;
+//        String input = StringUtils.repeat('x',5);
+//        Library classUnderTest = new Library();
+//
+//        boolean actual = classUnderTest.login(input);
+//
+//        assertEquals("login() should work with correct password", expected, actual);
+//    }
+    @Test
+    public void loginShouldFailWithInvalidPassword() {
+        boolean expected = false;
+        String input = StringUtils.repeat('y', 5);
+        Library classUnderTest = new Library();
+
+        boolean actual = classUnderTest.login(input);
+
+        assertEquals("login() should fail with incorrect password", expected, actual);
+    }
+    @Test
+    public void averageShouldReturnCorrectResult() {
+        float expected = 2.5f;
+        List<Float> input = Arrays.asList(1.0f, 2.0f, 3.0f, 4.0f);
+        Library classUnderTest = new Library();
+
+        float actual = classUnderTest.average(input);
+
+        Assert.assertEquals("average() should return the average", expected, actual, 0f);
+    }
+
     @Test public void addShouldAddTwoIntegers(){
         // Set Up
         int expected = 2;
